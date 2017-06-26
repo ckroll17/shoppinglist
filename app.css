@@ -1,0 +1,110 @@
+body {
+  background: #d5d5d5; 
+  font-family: arial;
+  color: #ea4421;
+  text-transform: uppercase;
+}
+
+.shoppinglist {
+  background: #f5f5f5;
+  width: 700px;
+  margin: 70px auto;
+  border-radius: 15px;
+
+}
+
+.header {
+  padding: 5px 10px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  background-color: #f5f5f5;
+  border-radius: 15px 15px 0 0;
+  border-bottom: solid 2px #ea4421;
+}
+
+.header h1 {
+  flex-grow: 1;
+  font-size: 1.5em;
+  letter-spacing: 3px;
+  font-weight: normal;
+}
+
+.food {
+  display: flex;
+  font-size: 1.2em;
+  border-bottom: solid 2px #444;
+  letter-spacing: 2px;
+}
+
+.food:last-child {
+  border-bottom: none;
+}
+
+  .remove-food {
+    visibility: hidden;
+    margin-right: 10px;
+    color: #e57373;
+    cursor: pointer;
+  }
+
+  .food-name:hover .remove-food {
+    visibility: visible;
+  }
+
+  .food-name {
+    flex-grow: 1;
+    padding: 20px 10px 10px 10px;
+  }
+
+  .food-quantity {
+    width: 190px;
+    background: blue;
+  }
+
+  .counter {
+    display: flex;
+  }
+
+  .counter-action {
+    border: none;
+    font-weight: bold;
+    color: #FAFAFA;
+    display: block;
+    padding: 20px 20px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  .counter-action.increment {
+    background: #66BB6A;
+  }
+
+  .counter-action.increment:hover {
+    background: #549d59;
+    cursor: pointer;
+  }
+
+  .counter-action.decrement {
+    background: #ef5350;
+  }
+
+  .counter-action.decrement:hover {
+    background: #c44442;
+    cursor: pointer;
+  }
+
+  .counter-quantity {
+    flex-grow: 1;
+    background: #2b2b2b;
+    color: #FAFAFA;
+    text-align: center;
+    font-family: monospace;
+    padding: 10px;
+    font-size: 2em;
+  }
+
+
