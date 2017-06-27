@@ -5,6 +5,11 @@ body {
   text-transform: uppercase;
 }
 
+button {
+  border: none;
+  text-decoration: none;
+}
+
 .shoppinglist {
   background: #f5f5f5;
   width: 700px;
@@ -59,11 +64,15 @@ body {
 
   .food-quantity {
     width: 190px;
-    background: blue;
+    background: #f5f5f5;
+    border-bottom-right-radius: 15px;
   }
 
   .counter {
     display: flex;
+    border:none;
+    text-decoration: none;
+    margin-right: 15px;
   }
 
   .counter-action {
@@ -79,27 +88,27 @@ body {
     user-select: none;
   }
 
-  .counter-action.increment {
-    background: #66BB6A;
+  .counter-action-increment {
+    background-color: #66BB6A;
   }
 
-  .counter-action.increment:hover {
-    background: #549d59;
+  .counter-action-increment:hover {
+    background-color: #549d59;
     cursor: pointer;
   }
 
-  .counter-action.decrement {
-    background: #ef5350;
+  .counter-action-decrement {
+    background: #c6bebe;
   }
 
-  .counter-action.decrement:hover {
-    background: #c44442;
+  .counter-action-decrement:hover {
+    background: #b7a3a3;
     cursor: pointer;
   }
 
   .counter-quantity {
     flex-grow: 1;
-    background: #2b2b2b;
+    background: #ea4421;
     color: #FAFAFA;
     text-align: center;
     font-family: monospace;
@@ -107,4 +116,53 @@ body {
     font-size: 2em;
   }
 
+.add-food-form form {
+  display: flex;
+  background-color: #f5f5f5;
+  border-radius: 0 0 20px 20px
+}
 
+  .add-food-form input[type=text] {
+    flex-grow: 1;
+    border-width: 0 0 1px 0;
+    margin: 15px 10px 15px 15px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #777;
+    border-style: none;
+    text-shadow: none;
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: 2px;
+    outline: none;
+  }
+
+  .add-food-form input[type=text]::-webkit-input-placeholder{
+    color: #fff;
+    letter-spacing: 2px;
+  }
+
+  .add-food-form input[type=text]:focus{
+    background-color: #ea4421;
+  }
+
+  .add-food-form input[type=submit] {
+    display: block;
+    font-size: .6em;
+    margin: 15px 15px 15px 0; 
+    padding: 10px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    border: none;
+    color: #333;
+    letter-spacing: 2px;
+    font-weight: bold;
+    text-shadow: none;
+    text-transform: uppercase;
+  }
+
+  .add-food-form input[type=submit]:hover{
+    background: #bada55;
+    color: #000;
+    cursor: pointer;
+  }
