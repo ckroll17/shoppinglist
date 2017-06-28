@@ -13,7 +13,7 @@ var FOOD = [
     name: "Lemons",
     quantity: 1,
     id: 3,
-  },
+  }
 ];
 
 var nextId = 4;
@@ -81,20 +81,36 @@ Food.propType = {
   onQuantityChange: React.PropTypes.func.isRequired,
 }
 
-
-function Counter(props){
-  return(
-      <div className = "counter">
-        <button className = "counter-action-decrement" onClick={function(){props.onChange(-1);}}>-</button>
-        <div className = "counter-quantity">{props.quantity}</div>
-        <button className = "counter-action-increment" onClick={function(){props.onChange(1);}}>+</button>
+var Counter = React.createClass({
+  incrementCount: function(){
+    this.setState({
+      count: this.state.count + 1
+    });
+  },
+  decrementCount: function(){
+    this.setState({
+      count: this.state.count - 1
+    });
+  },
+  getInitialState: function(){
+     return {
+       count: 0
+     }
+  },
+  render: function(){
+    return (
+      <div className="counter">
+            <button className="counter-action-decrement" onClick={this.decrementCount}>-</button>
+        <div className="counter-quantity">{this.state.count}</div>
+        <button className="counter-action-increment" onClick={this.incrementCount}>+</button>
       </div>
     );
-}
-
+  }
+});
+  
 Counter.propTypes = {
- quantity: React.PropTypes.number.isRequired,
- onChange: React.PropTypes.func.isRequired,
+  quantity: React.PropTypes.number.isRequired,
+  onChange: React.PropTypes.func.isRequired,
 }
 
 var Application = React.createClass({
@@ -118,9 +134,10 @@ var Application = React.createClass({
         foods: this.props.initialFoods,
       };
     },
-
-    onQuantityChange: function(delta){
-      console.log('onQuantityChange', delta)
+  
+  onQuantityChange: function(index, delta) {
+      this.state.food[index].quantity += delta;
+      this.setState(this.state);
     },
 
     onFoodAdd: function(name) {
@@ -140,10 +157,10 @@ var Application = React.createClass({
         <Header title={this.props.title} />
 
         <div className = "foods">
-          {this.state.foods.map(function(food){
+          {this.state.foods.map(function(food, index){
             return (
               <Food 
-                onQuantityChange={this.onQuantityChange}
+                onQuantityChange={function(delta) {this.onQuantityChange(index ,delta)}.bind(this)}
                 name={food.name} 
                 quantity={food.quantity} 
                 key={food.id} 
