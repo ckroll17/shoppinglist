@@ -43,7 +43,7 @@ var AddFoodForm = React.createClass({
       <div className="add-food-form">
         <form onSubmit={this.onSubmit}>
           <input type="text" value={this.state.name} onChange={this.onNameChange} />
-          <input type="submit" value="Add Food Item" />
+          <input type="submit" disabled={!this.state.name} value="Add Food Item" />
         </form>
       </div>
     );
